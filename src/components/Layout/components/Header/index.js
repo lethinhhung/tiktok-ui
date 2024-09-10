@@ -3,13 +3,9 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
-    faCircleXmark,
-    faCloudUpload,
     faEarthAsia,
     faEllipsisVertical,
     faKeyboard,
-    faMagnifyingGlass,
-    faSpinner,
     faUser,
     faCoins,
     faGear,
@@ -25,6 +21,8 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import { MessagesIcon, SearchIcon, CloseIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -127,12 +125,13 @@ function Header() {
                     <div className={cx('search')}>
                         <input placeholder="Search accounts and videos" spellCheck={false} />
                         <button className={cx('clear')}>
-                            <FontAwesomeIcon icon={faCircleXmark} />
+                            <CloseIcon width="16px" height="16px" />
                         </button>
-                        <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
+
+                        <CloseIcon width="16px" height="16px" className={cx('loading')} />
 
                         <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                            <SearchIcon width="24px" height="24px" />
                         </button>
                     </div>
                 </HeadlessTippy>
@@ -142,7 +141,7 @@ function Header() {
                         <>
                             <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <MessagesIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -155,9 +154,9 @@ function Header() {
 
                     <Menu items={currentUser ? USER_MENU : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
-                                src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/876fc5679f13c8252cb05484d525f72a.jpeg?lk3s=a5d48078&nonce=89323&refresh_token=f9fbeb9b2db76c2a166922e98bce68bb&x-expires=1726041600&x-signature=9KOCQZXrP03n0pWR0EJPAEa4DL4%3D&shp=a5d48078&shcp=81f88b70"
+                                src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/876fc5679f13c8252cb05484yd525f72a.jpeg?lk3s=a5d48078&nonce=89323&refresh_token=f9fbeb9b2db76c2a166922e98bce68bb&x-expires=1726041600&x-signature=9KOCQZXrP03n0pWR0EJPAEa4DL4%3D&shp=a5d48078&shcp=81f88b70"
                                 alt="Nguyen Van A"
                             />
                         ) : (
